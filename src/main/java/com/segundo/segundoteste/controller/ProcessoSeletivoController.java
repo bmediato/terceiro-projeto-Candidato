@@ -23,23 +23,28 @@ public class ProcessoSeletivoController {
 	public ProcessoSeletivoController() {
 		this.service = new ProcessoSeletivoService();
 	}
-
+	
+	
+	// exemplo entrada {"nome": "seu nome"}
 	@PostMapping("/start")
 	public int iniciarProcesso(@RequestBody CandidatoEntity candidato) {
 		return service.iniciarProcesso(candidato.getNome());
 	}
 
+	// exemplo entrada {"codCandidato": numero}
 	@PostMapping("/schedule")
 	public void marcarEntrevista(@RequestBody CandidatoEntity candidato) throws CandidatoException {
 		service.marcarEntrevista(candidato.getCodCandidato());
 	}
 
+	// exemplo entrada {"codCandidato": numero}
 	@PostMapping("/disqualify")
 	public void desqualificarCandidato(@RequestBody CandidatoEntity candidato) throws CandidatoException {
 		service.desqualificarCandidato(candidato.getCodCandidato());
 
 	}
 
+	// exemplo entrada {"codCandidato": numero}
 	@PostMapping("/approve")
 	public void aprovarCandidato(@RequestBody CandidatoEntity candidato) throws CandidatoException {
 		service.aprovarCandidato(candidato.getCodCandidato());
