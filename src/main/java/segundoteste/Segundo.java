@@ -8,7 +8,7 @@ import java.util.Map;
 import entities.CandidatoEntity;
 import exception.CandidatoException;
 
-public class Segundo {
+public class Segundo extends Exception{
 	private Map<Integer, CandidatoEntity> candidatos;
 	private int contador;
 
