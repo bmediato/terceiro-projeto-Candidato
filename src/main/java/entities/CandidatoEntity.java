@@ -4,12 +4,18 @@ import utils.StatusCandidato;
 
 
 public class CandidatoEntity {
+	private int codCandidato;
 	private String nome;
 	private StatusCandidato status;
 
-	public CandidatoEntity(String nome, StatusCandidato status) {
+	public CandidatoEntity(int codCandidato, String nome, StatusCandidato status) {
+		this.codCandidato = codCandidato;
 		this.nome = nome;
 		this.status = status;
+	}
+	
+	public int getCodCandidato() {
+		return codCandidato;
 	}
 
 	public String getNome() {

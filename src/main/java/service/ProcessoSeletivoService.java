@@ -20,7 +20,7 @@ public class ProcessoSeletivoService {
 
 	public int iniciarProcesso(String nome) {
 		int codCandidato = contador++;
-		CandidatoEntity candidato = new CandidatoEntity(nome, StatusCandidato.RECEBIDO);
+		CandidatoEntity candidato = new CandidatoEntity(codCandidato, nome, StatusCandidato.RECEBIDO);
 		candidatos.put(codCandidato, candidato);
 		return codCandidato;
 	}
