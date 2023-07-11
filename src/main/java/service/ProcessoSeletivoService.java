@@ -1,14 +1,18 @@
 package service;
 
 import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.springframework.stereotype.Service;
 
 import entities.CandidatoEntity;
 import exception.CandidatoException;
 import utils.StatusCandidato;
 
+@Service
 public class ProcessoSeletivoService {
 	private Map<Integer, CandidatoEntity> candidatos;
 	private int contador;
