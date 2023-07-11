@@ -1,10 +1,9 @@
 package entities;
 
-
 public class CandidatoEntity {
 	private String nome;
 	private String status;
-	
+
 	public CandidatoEntity(String nome, String status) {
 		this.nome = nome;
 		this.status = status;
@@ -21,6 +20,5 @@ public class CandidatoEntity {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
-	
+
 }
