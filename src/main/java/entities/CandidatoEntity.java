@@ -1,10 +1,13 @@
 package entities;
 
+import utils.StatusCandidato;
+
+
 public class CandidatoEntity {
 	private String nome;
-	private String status;
+	private StatusCandidato status;
 
-	public CandidatoEntity(String nome, String status) {
+	public CandidatoEntity(String nome, StatusCandidato status) {
 		this.nome = nome;
 		this.status = status;
 	}
@@ -13,11 +16,11 @@ public class CandidatoEntity {
 		return nome;
 	}
 
-	public String getStatus() {
+	public StatusCandidato getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(StatusCandidato status) {
 		this.status = status;
 	}
 

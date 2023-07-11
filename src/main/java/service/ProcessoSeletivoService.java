@@ -1,4 +1,4 @@
-package segundoteste;
+package service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,19 +7,20 @@ import java.util.Map;
 
 import entities.CandidatoEntity;
 import exception.CandidatoException;
+import utils.StatusCandidato;
 
-public class Segundo extends Exception{
+public class ProcessoSeletivoService {
 	private Map<Integer, CandidatoEntity> candidatos;
 	private int contador;
 
-	public Segundo() {
+	public ProcessoSeletivoService() {
 		candidatos = new HashMap<Integer, CandidatoEntity>();
 		contador = 1;
 	}
 
 	public int iniciarProcesso(String nome) {
 		int codCandidato = contador++;
-		CandidatoEntity candidato = new CandidatoEntity(nome, "Recebido");
+		CandidatoEntity candidato = new CandidatoEntity(nome, StatusCandidato.RECEBIDO);
 		candidatos.put(codCandidato, candidato);
 		return codCandidato;
 	}
@@ -27,10 +28,10 @@ public class Segundo extends Exception{
 	public void marcarEntrevista(int codCandidato) throws CandidatoException {
 		CandidatoException.verificarCandidatoExistente(candidatos, codCandidato);
 		CandidatoEntity candidato = candidatos.get(codCandidato);
-		if (candidato.getStatus().equals("Qualificado") || candidato.getStatus().equals("Aprovado")) {
+		if (candidato.getStatus().equals(StatusCandidato.QUALIFICADO) || candidato.getStatus().equals(StatusCandidato.APROVADO)) {
 			throw new CandidatoException("Candidato já participa do processo");
 		} else {
-			candidato.setStatus("Qualificado");
+			candidato.setStatus(StatusCandidato.QUALIFICADO);
 		}
 	}
 
@@ -39,7 +40,7 @@ public class Segundo extends Exception{
 		candidatos.remove(codCandidato);
 	}
 
-	public String verificarStatusCandidato(int codCandidato) throws CandidatoException {
+	public StatusCandidato verificarStatusCandidato(int codCandidato) throws CandidatoException {
 		CandidatoException.verificarCandidatoExistente(candidatos, codCandidato);
 		CandidatoEntity candidato = candidatos.get(codCandidato);
 		return candidato.getStatus();
@@ -48,10 +49,10 @@ public class Segundo extends Exception{
 	public void aprovarCandidato(int codCandidato) throws CandidatoException {
 		CandidatoException.verificarCandidatoExistente(candidatos, codCandidato);
 		CandidatoEntity candidato = candidatos.get(codCandidato);
-		if (candidato.getStatus().equals("Aprovado") || candidato.getStatus().equals("Recebido")) {
+		if (candidato.getStatus().equals(StatusCandidato.APROVADO) || candidato.getStatus().equals(StatusCandidato.RECEBIDO)) {
 			throw new CandidatoException("Candidato já participa do processo");
 		} else {
-			candidato.setStatus("Aprovado");
+			candidato.setStatus(StatusCandidato.APROVADO);
 		}
 	}
 
@@ -60,7 +61,7 @@ public class Segundo extends Exception{
 
 		for (CandidatoEntity candidato : candidatos.values()) {
 
-			if (candidato.getStatus().equals("Aprovado")) {
+			if (candidato.getStatus().equals(StatusCandidato.APROVADO)) {
 				aprovados.add(candidato.getNome());
 			}
 		}
