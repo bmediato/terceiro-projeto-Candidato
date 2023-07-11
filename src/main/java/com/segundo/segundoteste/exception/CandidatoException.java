@@ -1,8 +1,8 @@
-package exception;
+package com.segundo.segundoteste.exception;
 
 import java.util.Map;
 
-import entities.CandidatoEntity;
+import com.segundo.segundoteste.entities.CandidatoEntity;
 
 public class CandidatoException extends Exception {
 	public CandidatoException(String message) {

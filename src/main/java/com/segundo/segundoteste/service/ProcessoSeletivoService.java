@@ -1,4 +1,4 @@
-package service;
+package com.segundo.segundoteste.service;
 
 import java.util.ArrayList;
 
@@ -8,9 +8,9 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-import entities.CandidatoEntity;
-import exception.CandidatoException;
-import utils.StatusCandidato;
+import com.segundo.segundoteste.entities.CandidatoEntity;
+import com.segundo.segundoteste.exception.CandidatoException;
+import com.segundo.segundoteste.utils.StatusCandidato;
 
 @Service
 public class ProcessoSeletivoService {

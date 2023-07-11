@@ -1,19 +1,22 @@
-package entities;
+package com.segundo.segundoteste.entities;
 
-import utils.StatusCandidato;
-
+import com.segundo.segundoteste.utils.StatusCandidato;
 
 public class CandidatoEntity {
 	private int codCandidato;
 	private String nome;
 	private StatusCandidato status;
 
+	public CandidatoEntity() {
+
+	}
+
 	public CandidatoEntity(int codCandidato, String nome, StatusCandidato status) {
 		this.codCandidato = codCandidato;
 		this.nome = nome;
 		this.status = status;
 	}
-	
+
 	public int getCodCandidato() {
 		return codCandidato;
 	}
