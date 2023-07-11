@@ -1,5 +1,6 @@
 package entities;
 
+
 public class CandidatoEntity {
 	private String nome;
 	private String status;
